@@ -17,12 +17,22 @@
                         
                         <Label Text="{Binding Name}" Grid.Column="0"/>
 
-                        <local:ColorList Colors="{Binding Colors}" Grid.Column="1"/>
+                        <CollectionView ItemsSource="{Binding Colors}" Grid.Column="1" Margin="0">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Rectangle Fill="{Binding .}" HeightRequest="20" WidthRequest="20" Stroke="White"
+                                   Margin="5,0,5,0"/>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
 
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
- 
+    
 </ContentPage>
